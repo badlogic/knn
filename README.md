@@ -1,7 +1,7 @@
-Java KNN
+k-NN in OCaml, Rust and ... Java 6!
 ===
 
-Java 7/8 implementations of K nearest neighbour, cause everybody is showing off how small/fast it is in [favourite](http://philtomson.github.io/blog/2014/05/29/comparing-a-machine-learning-algorithm-implemented-in-f-number-and-ocaml/) [language]( X. All the implementations actually do k=1, leaving out the part of selecting the top k and then combining the “votes” in some suitable way.
+Java 7/8 implementations of K nearest neighbour, cause everybody is showing off how small/fast it is in [favourite](http://philtomson.github.io/blog/2014/05/29/comparing-a-machine-learning-algorithm-implemented-in-f-number-and-ocaml/) [language](http://huonw.github.io/2014/06/10/knn-rust.html) [X](http://re-factor.blogspot.com/2014/06/comparing-k-nn-in-factor.html). All the implementations actually do k=1, leaving out the part of selecting the top k and then combining the “votes” in some suitable way.
 
 Here it is in the most boring language imaginable, not using any Java 7/8 features that may be applicable, at an honest 61 LOC.
 
@@ -36,7 +36,7 @@ sys	0m0.155s
 ```
 
 ```
-rustc -O knn.rs 
+rustc -O src/knn.rs 
 time ./knn
 Percentage correct: 94.4%
 
@@ -46,7 +46,7 @@ sys	0m0.034s
 ```
 
 ```
-ocamlopt str.cmxa -o knn-ml knn.ml 
+ocamlopt str.cmxa -o knn-ml src/knn.ml 
 time ./knn-ml 
 Percentage correct:94.400000
 
