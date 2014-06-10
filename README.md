@@ -1,7 +1,7 @@
 Java KNN
 ===
 
-Java 7/8 implementations of K nearest neighbour, cause everybody is showing off how small/fast it is in favourite language X. All the implementations actually do k=1, leaving out the part of selecting the top k and then combining the “votes” in some suitable way.
+Java 7/8 implementations of K nearest neighbour, cause everybody is showing off how small/fast it is in [favourite](http://philtomson.github.io/blog/2014/05/29/comparing-a-machine-learning-algorithm-implemented-in-f-number-and-ocaml/) [language]( X. All the implementations actually do k=1, leaving out the part of selecting the top k and then combining the “votes” in some suitable way.
 
 Here it is in the most boring language imaginable, not using any Java 7/8 features that may be applicable, at an honest 61 LOC.
 
@@ -23,7 +23,7 @@ Alternatively import the awesome project into your favourite IDE, provided it su
 
 Benchmarking
 ============
-All benchmarks were performed on an early MBP. I used JDK 1.7.0_60, the Rust nightly build from (10 June 2014), OCaml 4.01.0. I didn’t care to install F#. The Java version is executed as is with default params, and without warmup. The Rust version was compiled via `rustc -O`, the OCaml version with `ocamlopt str.cmxa`. Timings (only printing a single run, stddev wasn’t significant, try it yourself):
+All benchmarks were performed on an early MBP. I used JDK 1.7.0_60, the Rust nightly build from (10 June 2014), OCaml 4.01.0. I tried to get the F# version to compile, but failed. The Java version is executed as is with default params, and without warmup. The Rust version was compiled via `rustc -O`, the OCaml version with `ocamlopt str.cmxa`. Timings (only printing a single run, stddev wasn’t significant, try it yourself):
 
 ```
 javac src/Knn.java 
