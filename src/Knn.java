@@ -50,7 +50,6 @@ class Knn {
 	}
 	
 	public static void main(String[] argv) throws IOException {
-		long start = System.nanoTime();
 		List<Sample> trainingSet = readFile("trainingsample.csv");
 		List<Sample> validationSet = readFile("validationsample.csv");
 		int numCorrect = 0;
@@ -58,6 +57,5 @@ class Knn {
 			if(classify(trainingSet, sample.pixels) == sample.label) numCorrect++;
 		}
 		System.out.println("Accuracy: " + (double)numCorrect / validationSet.size() * 100 + "%");
-		System.out.println("took: " + (System.nanoTime() - start) / 1000000000.0);
 	}
 }
