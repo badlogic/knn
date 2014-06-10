@@ -6,3 +6,8 @@
 .settings/
 bin/
 build/
+knn
+knn-ml
+knn.cmi
+knn.cmx
+knn.o

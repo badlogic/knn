@@ -3,7 +3,7 @@ Java KNN
 
 Java 7/8 implementations of K nearest neighbour, cause everybody is showing off how small/fast it is in favourite language X. All the implementations actually do k=1, leaving out the part of selecting the top k and then combining the “votes” in some suitable way.
 
-Here it is in the most boring language imaginable, not using any Java 7/8 features that may be applicable, at an honest 63 LOC.
+Here it is in the most boring language imaginable, not using any Java 7/8 features that may be applicable, at an honest 61 LOC.
 
 Compiling & Running
 ===================
@@ -23,6 +23,35 @@ Alternatively import the awesome project into your favourite IDE, provided it su
 
 Benchmarking
 ============
-This times a single run, consisting of loading the training and validation sets, then classifying all validation samples. No JVM warmup is performed, cause the heavy lifting `distance()` method will be JIT compiled pretty soon. For a super fair comparison we’d have to warm up the JVM, and force the CSV files out of the OS file cache.
+All benchmarks were performed on an early MBP. I used JDK 1.7.0_60, the Rust nightly build from (10 June 2014), OCaml 4.01.0. I didn’t care to install F#. The Java version is executed as is with default params, and without warmup. The Rust version was compiled via `rustc -O`, the OCaml version with `ocamlopt str.cmxa`. Timings (only printing a single run, stddev wasn’t significant, try it yourself):
 
-It takes between 2.4-2.7 secs on my early 2013 MBP. The equivalent [Rust version](http://huonw.github.io/2014/06/10/knn-rust.html) takes
+```
+javac src/Knn.java 
+time java -cp src Knn
+Accuracy: 94.39999999999999%
+
+real	0m2.836s
+user	0m2.923s
+sys	0m0.155s
+```
+
+```
+rustc -O knn.rs 
+time ./knn
+Percentage correct: 94.4%
+
+real	0m2.899s
+user	0m2.851s
+sys	0m0.034s
+```
+
+```
+ocamlopt str.cmxa -o knn-ml knn.ml 
+time ./knn-ml 
+Percentage correct:94.400000
+
+real	0m12.915s
+user	0m12.795s
+sys	0m0.110s
+
+```
