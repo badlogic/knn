@@ -55,3 +55,7 @@ user	0m12.795s
 sys	0m0.110s
 
 ```
+
+What's the point?
+=================
+Good question.
