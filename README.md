@@ -36,7 +36,7 @@ sys	0m0.155s
 ```
 
 ```
-rustc -O knn.rs 
+rustc -O src/knn.rs 
 time ./knn
 Percentage correct: 94.4%
 
@@ -46,7 +46,7 @@ sys	0m0.034s
 ```
 
 ```
-ocamlopt str.cmxa -o knn-ml knn.ml 
+ocamlopt str.cmxa -o knn-ml src/knn.ml 
 time ./knn-ml 
 Percentage correct:94.400000
 
