@@ -1,4 +1,4 @@
-Java KNN
+k-NN in OCaml, Rust and ... Java 6!
 ===
 
 Java 7/8 implementations of K nearest neighbour, cause everybody is showing off how small/fast it is in [favourite](http://philtomson.github.io/blog/2014/05/29/comparing-a-machine-learning-algorithm-implemented-in-f-number-and-ocaml/) [language]( X. All the implementations actually do k=1, leaving out the part of selecting the top k and then combining the “votes” in some suitable way.
