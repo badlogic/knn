@@ -32,16 +32,19 @@ let array_fold_left2 f acc a1 a2 =
   iter acc 0
 
 let distance p1 p2 =
-  sqrt
-  @@ float_of_int
-  @@ array_fold_left2 (fun acc a b -> let d = a - b in acc + d * d) 0 p1 p2
+  let sum = ref 0 in
+  for i = 0 to Array.length p1 - 1 do
+    let d = p1.(i) - p2.(i) in
+    sum := !sum + d * d
+  done;
+  !sum
 
 let classify (pixels: int array) =
   fst (
     Array.fold_left (fun ((min_label, min_dist) as min) (x : labelPixels) ->
       let dist = distance pixels x.pixels in
       if dist < min_dist then (x.label, dist) else min)
-      (max_int, max_float) (* a tiny hack *)
+      (max_int, max_int) (* a tiny hack *)
       trainingset
   )
 
